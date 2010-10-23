@@ -4,6 +4,9 @@
 	, "description"		: "Static files and fake XHRs" 
 	, "url"				: "http://github.com/alunny/sleight"
 	, "author"			: "Andrew Lunny <alunny@gmail.com>"
-	, "dependencies"	: { "paperboy": "=0.0.1" }
+	, "dependencies"	: { 
+		"paperboy": "=0.0.1" 
+		, "vows": "=0.5.2"
+	}
 	, "main"			: "./lib/sleight"
 }
