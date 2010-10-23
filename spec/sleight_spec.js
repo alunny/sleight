@@ -25,9 +25,9 @@ sleight.run({
 });
 
 // wrapper to make a simple request
-function get(path) {
+function get(url) {
 	return function () {
-		var testReq = client.request('GET', path, { host: 'localhost' })
+		var testReq = client.request('GET', url, { host: 'localhost' })
 		  , callback = this.callback
 		testReq.end()
 
