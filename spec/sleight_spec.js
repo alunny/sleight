@@ -1,5 +1,4 @@
 var path = require('path')
-  , sys = require('sys')
   , vows = require('vows')
   , assert = require('assert')
   , fs = require('fs')
@@ -26,25 +25,27 @@ sleight.run({
 });
 
 // wrapper to make a simple request
-function makeGetRequest(path, callback) {
-	var testReq = client.request('GET', path, { host: 'localhost' })
-	testReq.end()
-	testReq.on('response', function (response) {
-		response.data = [];
-		response.on('data', function (chunk) {
-			response.data.push(chunk);
+function get(path) {
+	return function () {
+		var testReq = client.request('GET', path, { host: 'localhost' })
+		  , callback = this.callback
+		testReq.end()
+
+		testReq.on('response', function (response) {
+			response.data = [];
+			response.on('data', function (chunk) {
+				response.data.push(chunk);
+			})
+			response.on('end', function () {
+				callback(null, response)
+			})
 		})
-		response.on('end', function () {
-			callback(null, response)
-		})
-	})
+	}
 }
 
 vows.describe('Sleight').addBatch({
 	'get static file': {
-		topic: function () {
-			makeGetRequest('/index.html', this.callback)
-		}
+		topic: get('/index.html')
 		, 'is an ok response': function (response) {
 			assert.equal (200, response.statusCode)
 		}
