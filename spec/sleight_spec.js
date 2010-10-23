@@ -54,7 +54,13 @@ vows.describe('Sleight').addBatch({
 		}
 	}
 	, 'get remote file': {
-
+		topic: get('/hello')
+		, 'is an ok response': function (response) {
+			assert.equal (200, response.statusCode)
+		}
+		, 'is the correct file': function (response) {
+			assert.equal ('Hello World!', response.data)
+		}
 	}
 	, '404 transferred': {
 
