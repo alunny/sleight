@@ -11,7 +11,7 @@ require.paths.unshift(path.join(path.dirname(__filename), '..'))
 var sleight = require('lib/sleight')
   , testServer = require('spec/fixtures/server')
   , public = path.join(path.dirname(__filename), 'fixtures', 'static')
-  , publicIndex = fs.readFileSync(path.join(public, 'index.html'))
+  , publicIndex = fs.readFileSync(path.join(public, 'index.html')).toString('utf8')
 
 // starting a test "remote" server
 testServer(4444)
@@ -35,7 +35,6 @@ function makeGetRequest(path, callback) {
 			response.data.push(chunk);
 		})
 		response.on('end', function () {
-			response.data.join('')
 			callback(null, response)
 		})
 	})
@@ -48,6 +47,9 @@ vows.describe('Sleight').addBatch({
 		}
 		, 'is an ok response': function (response) {
 			assert.equal (200, response.statusCode)
+		}
+		, 'is the correct file': function (response) {
+			assert.equal (publicIndex, response.data)
 		}
 	}
 	, 'get remote file': {
