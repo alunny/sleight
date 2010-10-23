@@ -63,6 +63,9 @@ vows.describe('Sleight').addBatch({
 		}
 	}
 	, '404 transferred': {
-
+		topic: get('/error')
+		, 'is a 404 response': function (response) {
+			assert.equal (404, response.statusCode)
+		}
 	}
 }).export(module)
