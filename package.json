@@ -9,4 +9,7 @@
 		, "vows": "=0.5.2"
 	}
 	, "main" : "./lib/sleight"
+	, "bin" : {
+		"sleight": "./bin/cli.js"
+	}
 }
