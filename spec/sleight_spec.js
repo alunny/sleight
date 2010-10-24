@@ -72,3 +72,9 @@ vows.describe('Sleight').addBatch({
 		}
 	}
 }).export(module)
+
+// TODO: a legit teardown
+setTimeout(function () {
+	sleightServer.server.close()
+	testServer.close()
+}, 600);
