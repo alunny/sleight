@@ -11,11 +11,12 @@ var sleight = require('lib/sleight')
   , testServer = require('spec/fixtures/server')
   , public = path.join(path.dirname(__filename), 'fixtures', 'static')
   , publicIndex = fs.readFileSync(path.join(public, 'index.html')).toString('utf8')
+  , sleightServer
 
 // starting a test "remote" server
-testServer(4444)
+testServer.listen(4444)
 
-sleight.run({
+sleightServer = sleight.start({
 	  public: public
 	, port: 3333
 	, target: {
@@ -23,6 +24,8 @@ sleight.run({
 	  , port: 4444
 	}
 });
+
+sleightServer.run()
 
 // wrapper to make a simple request
 function get(url) {
