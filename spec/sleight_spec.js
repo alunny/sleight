@@ -75,6 +75,6 @@ vows.describe('Sleight').addBatch({
 
 // TODO: a legit teardown
 setTimeout(function () {
-	sleightServer.server.close()
+	sleightServer.close()
 	testServer.close()
 }, 600);
