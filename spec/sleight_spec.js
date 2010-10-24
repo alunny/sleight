@@ -19,10 +19,7 @@ testServer.listen(4444)
 sleightServer = sleight.start({
 	  public: public
 	, port: 3333
-	, target: {
-		domain: 'localhost'
-	  , port: 4444
-	}
+	, target: 'localhost:4444'
 });
 
 sleightServer.run()
