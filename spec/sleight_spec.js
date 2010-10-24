@@ -20,6 +20,7 @@ sleightServer = sleight.start({
 	  public: public
 	, port: 3333
 	, target: 'localhost:4444'
+	, silent: true
 });
 
 sleightServer.run()
