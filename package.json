@@ -1,15 +1,20 @@
 {
-	  "name" : "sleight"
-	, "version" : "0.0.2" 
-	, "description" : "Static files and fake XHRs" 
-	, "url" : "http://github.com/alunny/sleight"
-	, "author" : "Andrew Lunny <alunny@gmail.com>"
-	, "dependencies" : { 
-		  "paperboy": "=0.0.1" 
-		, "vows": "=0.5.2"
-	}
-	, "main" : "./lib/sleight"
-	, "bin" : {
-		"sleight": "./bin/cli.js"
-	}
+      "name" : "sleight"
+    , "version" : "0.0.2"
+    , "description" : "Static files and fake XHRs"
+    , "url" : "http://github.com/alunny/sleight"
+    , "author" : "Andrew Lunny <alunny@gmail.com>"
+    , "dependencies" : {
+        "paperboy": "=0.0.1"
+    }
+    , "devDependencies" : {
+        "vows": "=0.5.2"
+    }
+    , "main" : "./lib/sleight"
+    , "bin" : {
+        "sleight": "./bin/cli.js"
+    }
+    , "sleight" : {
+        "test" : "node spec/sleight_spec.js"
+    }
 }
