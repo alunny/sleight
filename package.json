@@ -8,7 +8,7 @@
         "paperboy": "=0.0.1"
     }
     , "devDependencies" : {
-        "vows": "=0.5.2"
+        "vows": ">=0.5.2"
     }
     , "main" : "./lib/sleight"
     , "bin" : {
