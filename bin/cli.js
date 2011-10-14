@@ -1,4 +1,5 @@
-var sleight = require('sleight')
+#!/usr/bin/env node
+var sleight = require('../lib/sleight')
   , path = require('path')
   , cwd = process.cwd()
   , hash = { public: cwd } // default: start sleight in the current directory
