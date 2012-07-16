@@ -14,7 +14,7 @@ It's mostly useful for [PhoneGap][2] development, when you may want to test your
 Installation
 ------------
 
-    $ npm install sleight
+    $ npm install -g sleight
 
 Usage
 -----
